@@ -1,4 +1,4 @@
-
+import 'package:flutter/material.dart';
 void main() => runApp(App());
 class App extends StatelessWidget{
   void onPressed(){
@@ -43,12 +43,18 @@ class App extends StatelessWidget{
                   minWidth:200.0,
                   child:RaisedButton(
                     child:Text("LogIN",style:TextStyle(color:Colors.white),),
-                    onPressed:this.onPressed,
+                    onPressed:(){
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => SecondRoute()),
+
+
+                      );
+                    },
                   ),
               ),
-                Row(),
                 ButtonTheme(
-                  
+
                   minWidth:200.0,
                   child:RaisedButton(
                     child:Text("SignUP",style:TextStyle(color:Colors.white),),
@@ -58,6 +64,24 @@ class App extends StatelessWidget{
                 ),
               ]
           ),
+        ),
+      ),
+    );
+  }
+}
+class SecondRoute extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Second Route"),
+      ),
+      body: Center(
+        child: RaisedButton(
+          onPressed: () {
+
+          },
+          child: Text('Go back!'),
         ),
       ),
     );
